@@ -6,10 +6,11 @@ export default async function Projects() {
 
     return (
         <div>
-            <h1>Projects</h1>
-            {repos.map((repo) => (
-                <ProjectOverview {...repo} />
-            ))}
+            <div className="flex flex-col space-y-4">
+                {repos.map((repo) => (
+                    <ProjectOverview {...repo} />
+                ))}
+            </div>
         </div>
     );
 }

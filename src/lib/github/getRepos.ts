@@ -11,6 +11,10 @@ export type Repo = {
 };
 
 export async function getRepos(): Promise<Repo[]> {
-    let res = await fetch("https://api.github.com/users/AbstractNucleus/repos");
+    let res = await fetch("https://api.github.com/users/AbstractNucleus/repos", {
+        next: {
+            revalidate: 60 * 60 * 24,
+        }
+    });
     return res.json();
 }
